@@ -66,3 +66,19 @@ submit.addEventListener("click", () => {
     UnassignedDivs.push(personne);
     divPlus.before(personne);
 });
+
+// Affichage de la liste Unassigned dans la zone choisie
+const plus2 = document.querySelectorAll(".plus2");
+const Unassigned = document.querySelectorAll(".Unassigned");
+
+plus2.forEach((btn, index) => {
+
+    btn.addEventListener("click", () => {
+
+        Unassigned[index].classList.remove("hidden");
+
+        for (let i = 0; i < UnassignedDivs.length; i++) {
+            Unassigned[index].appendChild(UnassignedDivs[i]);
+        }
+    });
+});
