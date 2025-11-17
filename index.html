@@ -11,6 +11,41 @@
 <body class="h-screen flex justify-between items-center gap-[20px]">
     
     <section class="relative h-full w-[25%] bg-blue-400 p-[50px] flex flex-col gap-[20px] items-center">
+        
+        <form class="formulaire absolute hidden bg-red-500 p-[20px] flex flex-col gap-[10px] rounded-xl">
+
+            <label for="nom">nom</label>
+            <input class="nom" type="text" id="nom" placeholder="entrer ton nom" required>
+
+            <label for="role">role</label>
+            <select class="role" id="role">
+                <option value="Receptionniste">Receptionniste</option>
+                <option value="serveur">serveur</option>
+                <option value="securite">securite</option>
+                <option value="manager">manager</option>
+            </select>
+
+            <label for="image">lien de l'image</label>
+            <input class="lien" type="text" id="image" placeholder="entrer le lien de l'image" required>
+
+            <div class="imgDiv h-[70px] w-[80px] rounded-[50%]"></div>
+
+            <label for="email">email</label>
+            <input class="email" type="email" required>
+
+            <label for="telephone">telephone</label>
+            <input class="tel" type="tel">
+
+            <label for="experience">experience</label>
+            <input class="number" type="number" required>
+
+            <label for="location">location</label>
+            <input class="location" type="text">
+
+            <input class="border border-black rounded p-[3px] bg-white" type="reset">
+            <input class="submit border border-black rounded p-[3px] bg-white" type="submit">
+
+        </form>
 
         <h1 class="text-[30px]">Unassigned</h1>
 
