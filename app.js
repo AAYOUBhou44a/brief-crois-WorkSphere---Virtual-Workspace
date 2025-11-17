@@ -82,3 +82,29 @@ plus2.forEach((btn, index) => {
         }
     });
 });
+
+//  Sélection et placement d’un employé dans une zone
+plus2.forEach((btn, index) => {
+
+    btn.addEventListener("click", () => {
+
+        UnassignedDivs.forEach((worker) => {
+
+            worker.addEventListener("click", () => {
+
+                // placer la personne dans la zone
+                Unassigned[index].replaceChildren();
+                Unassigned[index].appendChild(worker);
+
+                // renvoyer les autres dans Unassigned
+                for (let i = 0; i < UnassignedDivs.length; i++) {
+                    if (UnassignedDivs[i] !== worker) {
+                        divPlus.before(UnassignedDivs[i]);
+                    }
+                }
+            });
+        });
+
+    });
+
+});
