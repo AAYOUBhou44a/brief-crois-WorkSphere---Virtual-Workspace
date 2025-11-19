@@ -51,7 +51,8 @@ submit.addEventListener("click", () => {
     personne.className = "w-full h-[80px] flex items-center justify-evenly bg-[#EFECE3] rounded border border-[#1E93AB] border-[2px] shadow-md shadow-black";
 
     const imagePersonne = document.createElement("div");
-
+    if(!employe.image)
+    {employe.image = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
     imagePersonne.className = `border rounded-[50%] h-[90%] w-[30%] bg-[url('${employe.image}')] bg-cover bg-center border-[#1E93AB] border-[2px] border-dashed`;
     personne.appendChild(imagePersonne);
 
