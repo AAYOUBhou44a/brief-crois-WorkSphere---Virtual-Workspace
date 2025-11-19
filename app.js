@@ -67,7 +67,13 @@ submit.addEventListener("click", () => {
 
     
     personne.appendChild(infos);
-
+    personne.appendChild(deleteBtn);
+    
+    deleteBtn.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        UnassignedDivs.push(personne);
+        divPlus.before(personne);
+    })
 
     UnassignedDivs.push(personne);
     divPlus.before(personne);
