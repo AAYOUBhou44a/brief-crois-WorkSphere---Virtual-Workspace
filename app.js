@@ -25,7 +25,7 @@ const submit = document.querySelector(".submit");
 
 submit.addEventListener("click", (evenement) => {
 
-    evenement.preventDefault();
+    // evenement.preventDefault();
     formulaire.classList.add("hidden");
 
     const employe = {
@@ -45,8 +45,9 @@ submit.addEventListener("click", (evenement) => {
 // Création de la carte de l’employé et envoi dans Unassigned
 submit.addEventListener("click", () => {
 
+    // récupiration du dernier carte ajouté au tableau , pour afficher ces infomations dans la carte 
     const employe = employees[employees.length - 1];
-
+    console.log(employe);
     const personne = document.createElement("div");
     personne.className = "w-full h-[80px] flex items-center justify-evenly bg-[#EFECE3] rounded border border-[#1E93AB] border-[2px] shadow-md shadow-black";
 
@@ -115,3 +116,26 @@ plus2.forEach((btn, zoneIndex) => {
         });
     });
 });
+
+const boutton = document.querySelector("button");
+
+boutton.addEventListener("click", ()=>{
+
+    const experience = document.createElement("div");
+    experience.className = "experience flex flex-col gap-[10px]";
+    boutton.before(experience);
+    
+    experience.innerHTML = `
+                <label for="entreprise" class="text-[#1E93AB] font-bold">l'entreprise</label>
+            <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="entreprise">
+            
+            <label for="dateStart" class="text-[#1E93AB] font-bold">la date de début</label>
+            <input type="date" class="h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateStart">
+            
+            <label for="dateStart" class="text-[#1E93AB] font-bold">la date de la fin</label>
+            <input type="date" class="h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateStart">
+            
+            <label for="role" class="text-[#1E93AB] font-bold">role</label>
+            <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="role">
+    `;
+})

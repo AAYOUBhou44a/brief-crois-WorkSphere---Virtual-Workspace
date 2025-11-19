@@ -10,7 +10,7 @@
 </head>
 <body class="h-screen flex justify-between items-center gap-[20px] lg:bg-[#DCDCDC]">
     
-    <section class="relative h-full xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
+    <section class="relative h-screen xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
         
         <form class="formulaire absolute hidden bg-[#DCDCDC] p-[20px] flex flex-col gap-[10px] rounded-xl w-[300px]">
 
@@ -26,23 +26,25 @@
             </select>
 
             <label for="image" class="text-[#1E93AB] font-bold">lien de l'image</label>
-            <input class="lien h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="image" placeholder="entrer le lien de l'image" required>
+            <input class="lien h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" placeholder="entrer le lien de l'image" id="image" required>
 
             <div class="imgDiv h-[70px] w-[80px] rounded-[50%] border border-[#1E93AB] border-[2px] border-dashed "></div>
 
             <label for="email" class="text-[#1E93AB] font-bold">email</label>
-            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" required>
+            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" id="email" required>
 
             <label for="telephone" class="text-[#1E93AB] font-bold">telephone</label>
-            <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel">
+            <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel" id="telephone">
 
-            <label for="experience" class="text-[#1E93AB] font-bold">experience</label>
-            <input class="number h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="number" required>
-
+            
             <label for="location" class="text-[#1E93AB] font-bold">location</label>
-            <input class="location h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text">
-
-            <input class="border h-[35px] border-black rounded p-[3px] bg-red-500 text-white font-bold" type="reset">
+            <input class="location h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="location">
+            
+            <label for="experience" class="text-[#1E93AB] font-bold">experience</label>
+            <button type="button" class="border h-[35px] border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold w-[80px] bg-gradient-to-r from-[#2A7B9B] to-[#57C785]">add</button>
+            
+            
+            <input class="reset border h-[35px] border-black rounded p-[3px] bg-red-500 text-white font-bold" type="reset">
             <input class="submit h-[35px] border border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold" type="submit">
 
         </form>
