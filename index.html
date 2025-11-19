@@ -8,87 +8,88 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
-<body class="h-screen flex justify-between items-center gap-[20px]">
+<body class="h-screen flex justify-between items-center gap-[20px] lg:bg-[#DCDCDC]">
     
-    <section class="relative h-full w-[25%] bg-blue-400 p-[50px] flex flex-col gap-[20px] items-center">
+    <section class="relative h-full xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
         
-        <form class="formulaire absolute hidden bg-red-500 p-[20px] flex flex-col gap-[10px] rounded-xl">
+        <form class="formulaire absolute hidden bg-[#DCDCDC] p-[20px] flex flex-col gap-[10px] rounded-xl w-[300px]">
 
-            <label for="nom">nom</label>
-            <input class="nom" type="text" id="nom" placeholder="entrer ton nom" required>
+            <label for="nom" class="text-[#1E93AB] font-bold">nom</label>
+            <input autofocus class="nom h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="nom" placeholder="entrer ton nom" required autofocus>
 
-            <label for="role">role</label>
-            <select class="role" id="role">
+            <label for="role" class="text-[#1E93AB] font-bold">role</label>
+            <select class="role h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="role">
                 <option value="Receptionniste">Receptionniste</option>
-                <option value="serveur">serveur</option>
+                <option value="serveur">serveur</option>    
                 <option value="securite">securite</option>
                 <option value="manager">manager</option>
             </select>
 
-            <label for="image">lien de l'image</label>
-            <input class="lien" type="text" id="image" placeholder="entrer le lien de l'image" required>
+            <label for="image" class="text-[#1E93AB] font-bold">lien de l'image</label>
+            <input class="lien h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="image" placeholder="entrer le lien de l'image" required>
 
-            <div class="imgDiv h-[70px] w-[80px] rounded-[50%]"></div>
+            <div class="imgDiv h-[70px] w-[80px] rounded-[50%] border border-[#1E93AB] border-[2px] border-dashed "></div>
 
-            <label for="email">email</label>
-            <input class="email" type="email" required>
+            <label for="email" class="text-[#1E93AB] font-bold">email</label>
+            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" required>
 
-            <label for="telephone">telephone</label>
-            <input class="tel" type="tel">
+            <label for="telephone" class="text-[#1E93AB] font-bold">telephone</label>
+            <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel">
 
-            <label for="experience">experience</label>
-            <input class="number" type="number" required>
+            <label for="experience" class="text-[#1E93AB] font-bold">experience</label>
+            <input class="number h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="number" required>
 
-            <label for="location">location</label>
-            <input class="location" type="text">
+            <label for="location" class="text-[#1E93AB] font-bold">location</label>
+            <input class="location h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text">
 
-            <input class="border border-black rounded p-[3px] bg-white" type="reset">
-            <input class="submit border border-black rounded p-[3px] bg-white" type="submit">
+            <input class="border h-[35px] border-black rounded p-[3px] bg-red-500 text-white font-bold" type="reset">
+            <input class="submit h-[35px] border border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold" type="submit">
 
         </form>
 
-        <h1 class="text-[30px]">Unassigned</h1>
+        <h1 class="text-[40px]">Unassigned</h1>
 
         <!-- bouton + -->
         <div class="divPlus text-[40px] w-full h-[80px] flex justify-center items-center">
             <i class="fa-solid fa-plus cursor-pointer plus"></i>
         </div>
+<!-- <img src="img/horizontale.jpg" alt="">
+<img src="img/verical.jpg" alt=""> -->
     </section>
-
-    <main class="bg-[url('img/plan-69159a65c5684763515973.jpg')]
-        w-[80%] h-[90%]
-        bg-cover bg-no-repeat bg-center pr-[40px]
-        grid grid-cols-5 grid-rows-3 mr-[20px]">
+    <main class=" bg-[url('img/verical.jpg')]
+        w-[80%] xl:h-[85%] lg:h-[65%] md:h-[40%]
+        bg-contain bg-no-repeat bg-center pr-[40px]
+        grid grid-cols-5 grid-rows-3 mr-[20px] md:bg-[url('img/horizontale.jpg')] h-[80%] w-[70%]">
 
 
         <div class="div1 col-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div2 col-start-4 col-span-1 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div4 col-start-1 col-span-2 row-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div5 col-start-4 col-span-1 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div6 col-start-5 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto w-[300px] bg-white rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
-            <i class="text-2xl text-white p-[5px] bg-blue-500 fa-solid fa-plus cursor-pointer plus2"></i>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
     </main>

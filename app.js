@@ -48,63 +48,63 @@ submit.addEventListener("click", () => {
     const employe = employees[employees.length - 1];
 
     const personne = document.createElement("div");
-    personne.className = "w-full h-[80px] flex items-center justify-evenly bg-red-500";
+    personne.className = "w-full h-[80px] flex items-center justify-evenly bg-[#EFECE3] rounded border border-[#1E93AB] border-[2px] shadow-md shadow-black";
 
     const imagePersonne = document.createElement("div");
-    imagePersonne.className = `border rounded-[50%] h-[90%] w-[30%] bg-[url('${employe.image}')] bg-cover bg-center`;
+
+    imagePersonne.className = `border rounded-[50%] h-[90%] w-[30%] bg-[url('${employe.image}')] bg-cover bg-center border-[#1E93AB] border-[2px] border-dashed`;
     personne.appendChild(imagePersonne);
 
     const infos = document.createElement("div");
-    infos.className = "flex gap-[20px]";
+    infos.className = "flex flex-col";
     infos.innerHTML = `
-        <h1>${employe.nom}</h1>
-        <h1>${employe.role}</h1>
+        <h1 class="lg:text-[12px] md:text-[10px] ">${employe.nom}</h1>
+        <h1 class="lg:text-[15px] md:text-[12px]">${employe.role}</h1>
     `;
 
+    const deleteBtn = document.createElement("i");
+    deleteBtn.className = "fa-solid fa-delete-left text-red-600 cursor-pointer";
+
+    
     personne.appendChild(infos);
+
 
     UnassignedDivs.push(personne);
     divPlus.before(personne);
 });
 
+
+
 // Affichage de la liste Unassigned dans la zone choisie
+//  Sélection et placement d’un employé dans une zone
+
 const plus2 = document.querySelectorAll(".plus2");
 const Unassigned = document.querySelectorAll(".Unassigned");
 
-plus2.forEach((btn, index) => {
+
+plus2.forEach((btn, zoneIndex) => {
 
     btn.addEventListener("click", () => {
 
-        Unassigned[index].classList.remove("hidden");
+        const zone = Unassigned[zoneIndex];
 
-        for (let i = 0; i < UnassignedDivs.length; i++) {
-            Unassigned[index].appendChild(UnassignedDivs[i]);
-        }
-    });
-});
-
-//  Sélection et placement d’un employé dans une zone
-plus2.forEach((btn, index) => {
-
-    btn.addEventListener("click", () => {
-
-        UnassignedDivs.forEach((worker) => {
-
-            worker.addEventListener("click", () => {
+        zone.classList.remove("hidden");
+        Unassigned.forEach(card => card.classList.add("h-[20px]"))
+        UnassignedDivs.forEach(card => zone.appendChild(card));
+        UnassignedDivs.forEach((card) => {
+            card.onclick = null;
+            card.onclick = () => {
 
                 // placer la personne dans la zone
-                Unassigned[index].replaceChildren();
-                Unassigned[index].appendChild(worker);
+                zone.appendChild(card);
 
+                const emp = UnassignedDivs.indexOf(card);
+                UnassignedDivs.splice(emp, 1);
+
+                UnassignedDivs.forEach(card => divPlus.before(card));
                 // renvoyer les autres dans Unassigned
-                for (let i = 0; i < UnassignedDivs.length; i++) {
-                    if (UnassignedDivs[i] !== worker) {
-                        divPlus.before(UnassignedDivs[i]);
-                    }
-                }
-            });
+
+            }
         });
-
     });
-
 });
