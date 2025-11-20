@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
-<body class="h-screen flex justify-between items-center gap-[20px] lg:bg-[#DCDCDC]">
+<body class="h-screen flex justify-between items-center gap-[20px] lg:bg-[#8F9494]">
     
-    <section class="relative h-screen xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
+    <section class="relative h-screen overflow-y-auto xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
         
-        <form class="formulaire absolute hidden bg-[#DCDCDC] p-[20px] flex flex-col gap-[10px] rounded-xl w-[300px]">
+        <form class="formulaire  absolute hidden bg-[#DCDCDC] p-[20px] flex flex-col gap-[10px] rounded-xl w-[300px]">
 
+            <div class="w-full h-full relative"><i class="fa-solid fa-x fermerFormulaire absolute right-0 text-red-500 font-bold text-xl cursor-pointer"></i></div>
             <label for="nom" class="text-[#1E93AB] font-bold">nom</label>
             <input autofocus class="nom h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="nom" placeholder="entrer ton nom" required autofocus>
 
@@ -35,10 +36,6 @@
 
             <label for="telephone" class="text-[#1E93AB] font-bold">telephone</label>
             <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel" id="telephone">
-
-            
-            <label for="location" class="text-[#1E93AB] font-bold">location</label>
-            <input class="location h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="location">
             
             <label for="experience" class="text-[#1E93AB] font-bold">experience</label>
             <button type="button" class="border h-[35px] border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold w-[80px] bg-gradient-to-r from-[#2A7B9B] to-[#57C785]">add</button>
@@ -55,8 +52,7 @@
         <div class="divPlus text-[40px] w-full h-[80px] flex justify-center items-center">
             <i class="fa-solid fa-plus cursor-pointer plus"></i>
         </div>
-<!-- <img src="img/horizontale.jpg" alt="">
-<img src="img/verical.jpg" alt=""> -->
+
     </section>
     <main class=" bg-[url('img/verical.jpg')]
         w-[80%] xl:h-[85%] lg:h-[65%] md:h-[40%]
@@ -65,32 +61,32 @@
 
 
         <div class="div1 col-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div2 col-start-4 col-span-1 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div4 col-start-1 col-span-2 row-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div5 col-start-4 col-span-1 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="div6 col-start-5 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] bg-[#1E93AB] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 

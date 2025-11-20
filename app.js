@@ -6,6 +6,9 @@ const divPlus = document.querySelector(".divPlus");
 
 plus.addEventListener("click", () => {
     formulaire.classList.remove("hidden");
+    
+    const nom = document.querySelector(".nom");
+    nom.focus();
 });
 
 // Prévisualisation de l’image du formulaire
@@ -25,17 +28,31 @@ const submit = document.querySelector(".submit");
 
 submit.addEventListener("click", (evenement) => {
 
-    // evenement.preventDefault();
+    const nameValue = document.querySelector(".nom").value;
+    const nameRegex = /^[a-zA-Z ]{2,30}$/;
+    console.log(nameRegex.test(nameValue));
+
+    const roleValue = document.querySelector(".role").value;
+
+    const emailValue = document.querySelector(".email").value;
+    const emailRegex = /^[\w.-]{2,30}@gmail\.com$/;
+    console.log(emailRegex.test(emailValue));
+
+    const telValue = document.querySelector(".tel").value;
+    const telRegex = /^[0-9]{10,20}$/;
+
+
+
+
+    evenement.preventDefault();
     formulaire.classList.add("hidden");
 
     const employe = {
         image: lien.value,
-        nom: document.querySelector(".nom").value,
-        role: document.querySelector(".role").value,
-        email: document.querySelector(".email").value,
-        telephone: document.querySelector(".tel").value,
-        experiences: document.querySelector(".number").value,
-        location: document.querySelector(".location").value
+        nom: nameValue,
+        role: roleValue,
+        email: emailValue,
+        telephone: telValue,
     };
 
     employees.push(employe);
@@ -109,6 +126,7 @@ plus2.forEach((btn, zoneIndex) => {
                 const emp = UnassignedDivs.indexOf(card);
                 UnassignedDivs.splice(emp, 1);
 
+                // UnassignedDivs.forEach(card => card.classList.add("h-[80px]"))
                 UnassignedDivs.forEach(card => divPlus.before(card));
                 // renvoyer les autres dans Unassigned
 
@@ -126,7 +144,8 @@ boutton.addEventListener("click", ()=>{
     boutton.before(experience);
     
     experience.innerHTML = `
-                <label for="entreprise" class="text-[#1E93AB] font-bold">l'entreprise</label>
+            <div class="border border-[2px] border-[#1E93AB]></div>
+            <label for="entreprise" class="text-[#1E93AB] font-bold">l'entreprise</label>
             <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="entreprise">
             
             <label for="dateStart" class="text-[#1E93AB] font-bold">la date de début</label>
@@ -138,4 +157,9 @@ boutton.addEventListener("click", ()=>{
             <label for="role" class="text-[#1E93AB] font-bold">role</label>
             <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="role">
     `;
+})
+
+const fermerFormulaire = document.querySelector(".fermerFormulaire");
+fermerFormulaire.addEventListener("click",()=>{
+    formulaire.classList.add("hidden");
 })
