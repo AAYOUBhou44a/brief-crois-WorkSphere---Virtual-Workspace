@@ -9,7 +9,14 @@ const role = document.querySelector(".role");
 const tel = document.querySelector(".tel");
 const email = document.querySelector(".email");
 
-
+Unassigned.forEach(un =>{
+    if(un.children.length == 0){
+        un.classList.add("bg-red-200 opacity-50");
+    }
+    else{
+        un.classList.remove("bg-red-200 opacity-50");
+    }
+})
 
 plus.addEventListener("click", () => {
     formulaire.classList.remove("hidden");
@@ -114,6 +121,7 @@ submit.addEventListener("click", (evenement) => {
     
     deleteBtn.addEventListener("click", (e)=>{
         e.stopPropagation();
+        personne.classList.remove("bg-[#87BAC3]");
         UnassignedDivs.push(personne);
         divPlus.before(personne);
     })
@@ -139,11 +147,15 @@ plus2.forEach((btn, zoneIndex) => {
 
         zone.classList.remove("hidden");
         Unassigned.forEach(card => card.classList.add("h-[20px]"))
+                if(zone.children.length ==3){
+                    alert("la zone est plein!");
+                    return;
+                } 
         UnassignedDivs.forEach(card => zone.appendChild(card));
         UnassignedDivs.forEach((card) => {
             card.onclick = null;
             card.onclick = () => {
-                console.log(card);
+
                 const cardRole  = card.dataset.role;
                 if(!zone.classList.contains(cardRole)){
                     alert("cette employe n'a pas l'autorisation d'entrer à cette chambre!")
@@ -151,6 +163,7 @@ plus2.forEach((btn, zoneIndex) => {
                 }
                 // placer la personne dans la zone
                 zone.appendChild(card);
+                card.classList.add("bg-[#87BAC3]");
 
                 const emp = UnassignedDivs.indexOf(card);
                 UnassignedDivs.splice(emp, 1);
