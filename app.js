@@ -9,14 +9,8 @@ const role = document.querySelector(".role");
 const tel = document.querySelector(".tel");
 const email = document.querySelector(".email");
 
-Unassigned.forEach(un =>{
-    if(un.children.length == 0){
-        un.classList.add("bg-red-200 opacity-50");
-    }
-    else{
-        un.classList.remove("bg-red-200 opacity-50");
-    }
-})
+
+
 
 plus.addEventListener("click", () => {
     formulaire.classList.remove("hidden");
@@ -124,6 +118,7 @@ submit.addEventListener("click", (evenement) => {
         personne.classList.remove("bg-[#87BAC3]");
         UnassignedDivs.push(personne);
         divPlus.before(personne);
+        zoneStatus();
     })
 
     UnassignedDivs.push(personne);
@@ -171,7 +166,7 @@ plus2.forEach((btn, zoneIndex) => {
                 // UnassignedDivs.forEach(card => card.classList.add("h-[80px]"))
                 UnassignedDivs.forEach(card => divPlus.before(card));
                 // renvoyer les autres dans Unassigned
-
+                zoneStatus();
             }
         });
     });
@@ -205,3 +200,17 @@ const fermerFormulaire = document.querySelector(".fermerFormulaire");
 fermerFormulaire.addEventListener("click",()=>{
     formulaire.classList.add("hidden");
 })
+
+
+const statuus = document.querySelectorAll(".status");
+function zoneStatus() {
+    Unassigned.forEach((un, index) => {
+
+        if (un.children.length === 0) {
+            statuus[index].classList.add("bg-red-300/50");
+        } else {
+            statuus[index].classList.remove("bg-red-300/50");
+        }
+    });
+}
+zoneStatus();
