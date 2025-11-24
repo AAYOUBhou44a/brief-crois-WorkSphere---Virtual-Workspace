@@ -8,31 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
-<body class="h-screen flex justify-between items-center gap-[20px] lg:bg-[#8F9494]">
+<body class="md:h-screen sm:h-auto md:flex md:flex-row flex flex-col justify-between items-center gap-[20px] bg-[#8F9494]">
     
-    <section class="relative h-screen overflow-y-auto xl:w-[28%] lg:w-[35%] bg-[#1E93AB] p-[50px] flex flex-col gap-[20px] items-center w-[40%] w-[50%]">
+    <section class="relative md:h-screen h-[400px] overflow-y-auto scrollbar-none 2xl:w-[30%] xl:w-[35%] lg:w-[43%] md:bg-[#1E93AB] bg-[#8F9494] md:p-[50px]  
+    flex flex-col gap-[20px] items-center md:w-[70%] w-[60%] md:rounded rounded-b-2xl">
         
         <form class="formulaire  absolute hidden bg-[#DCDCDC] p-[20px] flex flex-col gap-[10px] rounded-xl w-[300px]">
 
             <div class="w-full h-full relative"><i class="fa-solid fa-x fermerFormulaire absolute right-0 text-red-500 font-bold text-xl cursor-pointer"></i></div>
             <label for="nom" class="text-[#1E93AB] font-bold">nom</label>
-            <input autofocus class="nom h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="nom" placeholder="entrer ton nom" required autofocus>
+            <input autofocus class="nom h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="nom" placeholder="entrer ton nom" required>
 
             <label for="role" class="text-[#1E93AB] font-bold">role</label>
             <select class="role h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="role">
                 <option value="Receptionniste">Receptionniste</option>
-                <option value="serveur">serveur</option>    
+                <option value="Technicien">Technicien</option>    
                 <option value="securite">securite</option>
                 <option value="manager">manager</option>
+                <option value="nettoyeur">nettoyeur</option>
+                <option value="invite">invite</option>
             </select>
 
             <label for="image" class="text-[#1E93AB] font-bold">lien de l'image</label>
-            <input class="lien h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" placeholder="entrer le lien de l'image" id="image" required>
+            <input class="lien h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" placeholder="entrer le lien de l'image" id="image">
 
             <div class="imgDiv h-[70px] w-[80px] rounded-[50%] border border-[#1E93AB] border-[2px] border-dashed "></div>
 
             <label for="email" class="text-[#1E93AB] font-bold">email</label>
-            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" id="email" required>
+            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" id="email" >
 
             <label for="telephone" class="text-[#1E93AB] font-bold">telephone</label>
             <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel" id="telephone">
@@ -46,47 +49,53 @@
 
         </form>
 
-        <h1 class="text-[40px]">Unassigned</h1>
+        <h1 class="md:text-[40px] text-[30px] text-black">Unassigned</h1>
 
         <!-- bouton + -->
         <div class="divPlus text-[40px] w-full h-[80px] flex justify-center items-center">
-            <i class="fa-solid fa-plus cursor-pointer plus"></i>
+            <i class="fa-solid fa-plus cursor-pointer plus md:text-black text-[#1E93AB]"></i>
         </div>
 
     </section>
     <main class=" bg-[url('img/verical.jpg')]
-        w-[80%] xl:h-[85%] lg:h-[65%] md:h-[40%]
-        bg-contain bg-no-repeat bg-center pr-[40px]
-        grid grid-cols-5 grid-rows-3 mr-[20px] md:bg-[url('img/horizontale.jpg')] h-[80%] w-[70%]">
+        xl:h-[85%] lg:h-[65%] md:h-[90%]
+        md:bg-contain bg-no-repeat bg-center md:pr-[40px]
+        grid md:grid-cols-5 grid-cols-3 grid-rows-5 md:grid-rows-3 mb-[20px] md:mr-[20px] lg:bg-[url('img/horizontale.jpg')] bg-[length:100%_100%] h-[750px] md:w-[95%] w-[90%]">
 
 
-        <div class="div1 col-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" col-span-2 flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black " style="text-shadow: -3px 3px 3px rgb(247, 245, 245);"><h1>Salle de conférence</h1></div>
+            <div class="Unassigned Receptionniste hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px] z-50"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
-        <div class="div2 col-start-4 col-span-1 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" col-start-4 col-span-1 flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Réception</h1></div>
+            <div class="Unassigned Technicien hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
-        <div class="div3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle des serveurs</h1></div>
+            <div class="Unassigned securite hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
-        <div class="div4 col-start-1 col-span-2 row-span-2 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" col-start-1 col-span-2 row-span-2 flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle de sécurité</h1></div>
+            <div class="Unassigned manager hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
-        <div class="div5 col-start-4 col-span-1 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" col-start-4 col-span-1 row-start-3 flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle du personnel</h1></div>
+            <div class="Unassigned nettoyeur hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
-        <div class="div6 col-start-5 row-start-3 flex items-center justify-center relative">
-            <div class="Unassigned hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+        <div class=" col-start-5 row-start-3 flex items-center justify-center relative">
+            <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 3px 4px rgb(247, 245, 245);"><h1>Salle d’archives</h1></div>
+            <div class="Unassigned invite hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 

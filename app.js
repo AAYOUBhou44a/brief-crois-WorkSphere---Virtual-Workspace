@@ -4,10 +4,15 @@ const plus = document.querySelector(".plus");
 const formulaire = document.querySelector(".formulaire");
 const divPlus = document.querySelector(".divPlus");
 
+const nom = document.querySelector(".nom");
+const role = document.querySelector(".role");
+const tel = document.querySelector(".tel");
+const email = document.querySelector(".email");
+
+
+
 plus.addEventListener("click", () => {
     formulaire.classList.remove("hidden");
-    
-    const nom = document.querySelector(".nom");
     nom.focus();
 });
 
@@ -26,59 +31,78 @@ const employees = [];
 const UnassignedDivs = [];
 const submit = document.querySelector(".submit");
 
-submit.addEventListener("click", (evenement) => {
-
-    const nameValue = document.querySelector(".nom").value;
-    const nameRegex = /^[a-zA-Z ]{2,30}$/;
-    console.log(nameRegex.test(nameValue));
-
-    const roleValue = document.querySelector(".role").value;
-
-    const emailValue = document.querySelector(".email").value;
-    const emailRegex = /^[\w.-]{2,30}@gmail\.com$/;
-    console.log(emailRegex.test(emailValue));
-
-    const telValue = document.querySelector(".tel").value;
-    const telRegex = /^[0-9]{10,20}$/;
-
-
-
-
-    evenement.preventDefault();
-    formulaire.classList.add("hidden");
-
-    const employe = {
-        image: lien.value,
-        nom: nameValue,
-        role: roleValue,
-        email: emailValue,
-        telephone: telValue,
-    };
-
-    employees.push(employe);
-    formulaire.reset();
-});
 
 // Création de la carte de l’employé et envoi dans Unassigned
-submit.addEventListener("click", () => {
+submit.addEventListener("click", (evenement) => {
+
+    evenement.preventDefault();
+    if(!formulaire.checkValidity()){
+        formulaire.reportValidity();
+        return;
+    }
+    const nameValue = document.querySelector(".nom").value;
+    // const nameRegex = /^[a-zA-Z ]{2,30}$/;
+    // if(!nameRegex.test(nameValue)){
+        //     alert("nom Invalid");
+        //     nom.classList.add("border-red-500");
+        //     return; 
+        // }
+        
+        const roleValue = document.querySelector(".role").value;
+        
+        const emailValue = document.querySelector(".email").value;
+        // const emailRegex = /^[\w.-]{2,30}@gmail\.com$/;
+        // if(!emailRegex.test(emailValue)){
+            //     alert("email Invalid");
+            //     email.classList.add("border-red-500");
+            //     return; 
+    // }
+    
+    const telValue = document.querySelector(".tel").value;
+    // const telRegex = /^[0-9]{10,20}$/;
+    
+    // if(!telRegex.test(telValue)){
+        //     alert("numéro de téléphone Invalid");
+        //     tel.classList.add("border-red-500");
+        //     return; 
+        // }
+        
+        
+        
+        formulaire.classList.add("hidden");
+        
+        const employe = {
+            image: lien.value,
+            nom: nameValue,
+            role: roleValue,
+            email: emailValue,
+            telephone: telValue,
+        };
+        
+        employees.push(employe);
+        formulaire.reset();
+
 
     // récupiration du dernier carte ajouté au tableau , pour afficher ces infomations dans la carte 
-    const employe = employees[employees.length - 1];
-    console.log(employe);
+    const worker = employees[employees.length - 1];
     const personne = document.createElement("div");
-    personne.className = "w-full h-[80px] flex items-center justify-evenly bg-[#EFECE3] rounded border border-[#1E93AB] border-[2px] shadow-md shadow-black";
+    personne.className = "md:w-full w-[300px] h-[80px] flex items-center justify-evenly bg-[#EFECE3] rounded border border-[#1E93AB] border-[2px] shadow-md shadow-black";
 
+    personne.dataset.role = worker.role;
     const imagePersonne = document.createElement("div");
-    if(!employe.image)
-    {employe.image = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
-    imagePersonne.className = `border rounded-[50%] h-[90%] w-[30%] bg-[url('${employe.image}')] bg-cover bg-center border-[#1E93AB] border-[2px] border-dashed`;
+    if(!worker.image)
+    {worker.image = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
+    imagePersonne.className = `border rounded-[50%] h-[90%] w-[30%] bg-[url('${worker.image}')] bg-cover bg-center border-[#1E93AB] border-[2px] border-dashed`;
     personne.appendChild(imagePersonne);
 
     const infos = document.createElement("div");
     infos.className = "flex flex-col";
+    if(!worker.nom){
+        worker.nom = "undefined";
+    }
     infos.innerHTML = `
-        <h1 class="lg:text-[12px] md:text-[10px] ">${employe.nom}</h1>
-        <h1 class="lg:text-[15px] md:text-[12px]">${employe.role}</h1>
+        <h1 class="lg:text-[12px] md:text-[10px] ">${worker.nom}</h1>
+        <h1 class="lg:text-[15px] md:text-[12px]">${worker.role}</h1>
     `;
 
     const deleteBtn = document.createElement("i");
@@ -119,7 +143,12 @@ plus2.forEach((btn, zoneIndex) => {
         UnassignedDivs.forEach((card) => {
             card.onclick = null;
             card.onclick = () => {
-
+                console.log(card);
+                const cardRole  = card.dataset.role;
+                if(!zone.classList.contains(cardRole)){
+                    alert("cette employe n'a pas l'autorisation d'entrer à cette chambre!")
+                    return;
+                }
                 // placer la personne dans la zone
                 zone.appendChild(card);
 
