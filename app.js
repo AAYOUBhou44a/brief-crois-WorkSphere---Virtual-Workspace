@@ -267,7 +267,8 @@ plus2.forEach((btn, zoneIndex) => {
                 zone.appendChild(card);
                 card.classList.add("bg-[#87BAC3]");
 
-                worker.localisation = zone.dataset.nomZone;
+                // worker.localisation = zone.dataset.nomZone;
+                
                 const emp = UnassignedDivs.indexOf(card);
                 UnassignedDivs.splice(emp, 1);
 
