@@ -9,7 +9,6 @@
     <title>Document</title>
 </head>
 <body class="md:h-screen sm:h-auto md:flex md:flex-row flex flex-col justify-between items-center gap-[20px] bg-[#8F9494]">
-    
     <section class="relative md:h-screen h-[400px] overflow-y-auto scrollbar-none 2xl:w-[30%] xl:w-[35%] lg:w-[43%] md:bg-[#1E93AB] bg-[#8F9494] md:p-[50px]  
     flex flex-col gap-[20px] items-center md:w-[70%] w-[60%] md:rounded rounded-b-2xl">
         
@@ -35,17 +34,18 @@
             <div class="imgDiv h-[70px] w-[80px] rounded-[50%] border border-[#1E93AB] border-[2px] border-dashed "></div>
 
             <label for="email" class="text-[#1E93AB] font-bold">email</label>
-            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" id="email" >
+            <input class="email h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="email" id="email" required>
 
             <label for="telephone" class="text-[#1E93AB] font-bold">telephone</label>
             <input class="tel h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="tel" id="telephone">
             
             <label for="experience" class="text-[#1E93AB] font-bold">experience</label>
+            <div class="experiences absolute"></div>
             <button type="button" class="border h-[35px] border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold w-[80px] bg-gradient-to-r from-[#2A7B9B] to-[#57C785]">add</button>
             
             
             <input class="reset border h-[35px] border-black rounded p-[3px] bg-red-500 text-white font-bold" type="reset">
-            <input class="submit h-[35px] border border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold" type="submit">
+            <input class="submit h-[35px] border border-black rounded p-[3px] bg-[#1E93AB] text-white font-bold cursor-pointer" type="submit">
 
         </form>
 
@@ -65,40 +65,40 @@
 
         <div class="status lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2 col-start-3 col-end-4 row-start-1 row-end-3 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black " style="text-shadow: -3px 3px 3px rgb(247, 245, 245);"><h1>Salle de conférence</h1></div>
-            <div class="Unassigned Receptionniste manager hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px] z-50"></div>
+            <div class="Unassigned Receptionniste manager nettoyeur hidden absolute h-auto md:w-[160px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px] z-50" data-nomZone="salle de conference"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="status lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-2 col-start-3 col-end-4 row-start-4 row-end-5 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Réception</h1></div>
-            <div class="Unassigned Technicien manager hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned Technicien manager nettoyeur hidden absolute h-auto md:w-[160px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]" data-nomZone="reception"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="status lg:col-start-5 lg:col-end-6 lg:row-start-1 lg:row-end-2 col-start-3 col-end-4 row-start-5 row-end-6 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle des serveurs</h1></div>
-            <div class="Unassigned securite manager hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned securite manager nettoyeur hidden absolute h-auto md:w-[160px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]" data-nomZone="salle des serveurs"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="status lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-4 col-start-1 col-end-3 row-start-1 row-end-3 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle de sécurité</h1></div>
-            <div class="Unassigned manager hidden absolute h-auto md:w-[150px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned manager nettoyeur hidden absolute h-auto md:w-[160px] lg:w-[180px]  rounded-xl p-[10px] flex flex-col gap-[5px]" data-nomZone="salle de securite"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="status lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 col-start-1 col-end-2 row-start-4 row-end-5 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 2px 3px rgb(247, 245, 245);"><h1>Salle du personnel</h1></div>
-            <div class="Unassigned nettoyeur manager hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned nettoyeur manager hidden absolute h-auto md:w-[160px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]" data-nomZone="salle du personnel"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
 
         <div class="status lg:col-start-5 lg:col-end-6 lg:row-start-3 lg:row-end-4 col-start-1 col-end-2 row-start-5 row-end-6 flex items-center justify-center relative">
             <div class="absolute top-[10px] text-2xl font-bold text-black" style="text-shadow: -3px 3px 4px rgb(247, 245, 245);"><h1>Salle d’archives</h1></div>
-            <div class="Unassigned invite manager hidden absolute h-auto md:w-[150px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]"></div>
+            <div class="Unassigned invite manager hidden absolute h-auto md:w-[160px] lg:w-[180px] rounded-xl p-[10px] flex flex-col gap-[5px]" data-nomZone="salle d'archives"></div>
             <i class="text-2xl text-white p-[5px] bg-[#1E93AB] rounded fa-solid fa-plus cursor-pointer plus2"></i>
         </div>
-
+    <div>
     </main>
 </body>
 </html>

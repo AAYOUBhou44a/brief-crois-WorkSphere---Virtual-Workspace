@@ -9,7 +9,7 @@ const role = document.querySelector(".role");
 const tel = document.querySelector(".tel");
 const email = document.querySelector(".email");
 
-
+const statuus = document.querySelectorAll(".status");
 
 
 plus.addEventListener("click", () => {
@@ -17,6 +17,32 @@ plus.addEventListener("click", () => {
     nom.focus();
 });
 
+const tableauExperiences = []; 
+// l'ajout des éxeperiences dans le formulaire 
+const boutton = document.querySelector("button");
+const experiences = document.querySelector(".experiences");
+experiences.className = "flex flex-col gap-[20px]";
+boutton.addEventListener("click", ()=>{
+
+    const experience = document.createElement("div");
+    experience.className = "experience flex flex-col gap-[10px]";
+    experiences.appendChild(experience);
+    
+    experience.innerHTML = `
+            <div class="border border-[2px] border-[#1E93AB]"></div>
+            <label for="entreprise" class="text-[#1E93AB] font-bold">l'entreprise</label>
+            <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="entreprise">
+            
+            <label for="dateStart" class=" text-[#1E93AB] font-bold">la date de début</label>
+            <input type="date" class="dateStart h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateStart">
+            
+            <label for="dateEnd" class=" text-[#1E93AB] font-bold">la date de la fin</label>
+            <input type="date" class="dateEnd h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateEnd">
+            
+            <label for="roleEx" class="text-[#1E93AB] font-bold">role</label>
+            <input class="roleEx h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="role">
+    `;
+})
 // Prévisualisation de l’image du formulaire
 const lien = document.querySelector(".lien");
 const imgDiv = document.querySelector(".imgDiv");
@@ -42,33 +68,49 @@ submit.addEventListener("click", (evenement) => {
         return;
     }
     const nameValue = document.querySelector(".nom").value;
-    // const nameRegex = /^[a-zA-Z ]{2,30}$/;
-    // if(!nameRegex.test(nameValue)){
-        //     alert("nom Invalid");
-        //     nom.classList.add("border-red-500");
-        //     return; 
-        // }
+    const nameRegex = /^[a-zA-Z ]{2,30}$/;
+    if(!nameRegex.test(nameValue)){
+            alert("nom Invalid");
+            nom.classList.add("border-red-500");
+            return; 
+        }
         
         const roleValue = document.querySelector(".role").value;
         
         const emailValue = document.querySelector(".email").value;
-        // const emailRegex = /^[\w.-]{2,30}@gmail\.com$/;
-        // if(!emailRegex.test(emailValue)){
-            //     alert("email Invalid");
-            //     email.classList.add("border-red-500");
-            //     return; 
-    // }
+        const emailRegex = /^[\w.-]{2,30}@gmail\.com$/;
+        if(!emailRegex.test(emailValue)){
+                alert("email Invalid");
+                email.classList.add("border-red-500");
+                return; 
+    }
     
     const telValue = document.querySelector(".tel").value;
-    // const telRegex = /^[0-9]{10,20}$/;
+    const telRegex = /^[0-9]{10,20}$/;
     
-    // if(!telRegex.test(telValue)){
-        //     alert("numéro de téléphone Invalid");
-        //     tel.classList.add("border-red-500");
-        //     return; 
-        // }
+    if(!telRegex.test(telValue)){
+            alert("numéro de téléphone Invalid");
+            tel.classList.add("border-red-500");
+            return; 
+        }
         
-        
+        // récupération des valeurs des inputs ( experiences) 
+        document.querySelectorAll(".experience").forEach(expr =>{
+            
+            const entrepriseValeur = expr.querySelector(".entreprise").value;
+            const dateStartValeur = expr.querySelector(".dateStart").value;
+            const dateEndValeur = expr.querySelector(".dateEnd").value;
+            const roleExValeur = expr.querySelector(".roleEx").value;
+            
+            const experience = {
+                    entreprise: entrepriseValeur,
+                    dateStart: dateStartValeur,
+                    dateEnd: dateEndValeur,
+                    roleEx: roleExValeur
+                }
+            tableauExperiences.push(experience);
+        })
+            
         
         formulaire.classList.add("hidden");
         
@@ -78,7 +120,10 @@ submit.addEventListener("click", (evenement) => {
             role: roleValue,
             email: emailValue,
             telephone: telValue,
+            localisation : "réception",
+            experiences:tableauExperiences
         };
+        console.log(employe.experiences);
         
         employees.push(employe);
         formulaire.reset();
@@ -121,6 +166,68 @@ submit.addEventListener("click", (evenement) => {
         zoneStatus();
     })
 
+
+            // affichage des information 
+
+                const affichage = document.createElement("i");
+                affichage.className = "fa-solid fa-info text-red-600 m-[4px] cursor-pointer";
+                
+                personne.appendChild(affichage);
+                affichage.addEventListener("click", ()=>{
+                    const divInforamtion = document.createElement("div");
+            divInforamtion.className = "relative z-[1000] p-[20px] gap-[10px] flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-[500px] min-w-[300px] bg-gray-300 rounded border border-[#1E93AB] text-sm";
+            divInforamtion.innerHTML = `
+            <div class="flex items-center gap-[20px] ">
+                <div class="border rounded-[50%] h-[90px] w-[90px] bg-[url('${worker.image}')] bg-cover bg-center border-[#1E93AB] border-[2px] border-dashed"></div>
+                <div>
+                    <div class="nom">${worker.nom}</div>
+                    <div class="role">${worker.role}</div>
+                    </div>
+                    </div>
+            <div class="email flex justify-between">
+            <h1 class="text-[#1E93AB] font-bold ">EMAIL :</h1>
+                <h1>${worker.email}</h1>
+            </div>
+            <div class="telephone flex justify-between">
+            <h1 class="text-[#1E93AB] font-bold ">TELEPHONE :</h1>
+            <h1>${worker.telephone}</h1>
+            </div>
+            <div class="localisationActuelle flex justify-between">
+                <h1 class="text-[#1E93AB] font-bold ">lOCALISATION ACTUELLE : </h1>
+                <h1>${worker.localisation}</h1>
+                </div>
+                <div class="AffichageExperiences"></div>
+                `;
+
+const AffichageExperiences = divInforamtion.querySelector(".AffichageExperiences");
+
+worker.experiences.forEach(exp => {
+    const expDiv = document.createElement("div");
+    expDiv.className = "flex flex-col gap-[2px] p-[5px] border-b border-gray-700";
+    expDiv.innerHTML = `
+        <div class="font-bold text-[#1E93AB]">Entreprise :</div>
+        <div>${exp.entreprise}</div>
+        <div class="font-bold text-[#1E93AB]">Role :</div>
+        <div>${exp.roleEx}</div>
+        <div class="font-bold text-[#1E93AB]">Durée :</div>
+        <div>${exp.dateStart} - ${exp.dateEnd}</div>
+    `;
+    AffichageExperiences.appendChild(expDiv);
+});
+
+
+
+                const fermerInfos = document.createElement("div");
+                fermerInfos.innerHTML = ` <div class="w-full h-full"><i class="fa-solid fa-x absolute top-[10px] right-[10px] text-red-500 font-bold text-xl cursor-pointer"></i></div>`;
+    
+                    fermerInfos.addEventListener("click",()=>{
+                        divInforamtion.classList.add("hidden");
+                    })
+                divInforamtion.appendChild(fermerInfos);
+                main.appendChild(divInforamtion);
+            })
+
+            
     UnassignedDivs.push(personne);
     divPlus.before(personne);
 });
@@ -160,6 +267,7 @@ plus2.forEach((btn, zoneIndex) => {
                 zone.appendChild(card);
                 card.classList.add("bg-[#87BAC3]");
 
+                worker.localisation = zone.dataset.nomZone;
                 const emp = UnassignedDivs.indexOf(card);
                 UnassignedDivs.splice(emp, 1);
 
@@ -172,37 +280,15 @@ plus2.forEach((btn, zoneIndex) => {
     });
 });
 
-const boutton = document.querySelector("button");
-
-boutton.addEventListener("click", ()=>{
-
-    const experience = document.createElement("div");
-    experience.className = "experience flex flex-col gap-[10px]";
-    boutton.before(experience);
-    
-    experience.innerHTML = `
-            <div class="border border-[2px] border-[#1E93AB]></div>
-            <label for="entreprise" class="text-[#1E93AB] font-bold">l'entreprise</label>
-            <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="entreprise">
-            
-            <label for="dateStart" class="text-[#1E93AB] font-bold">la date de début</label>
-            <input type="date" class="h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateStart">
-            
-            <label for="dateStart" class="text-[#1E93AB] font-bold">la date de la fin</label>
-            <input type="date" class="h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" id="dateStart">
-            
-            <label for="role" class="text-[#1E93AB] font-bold">role</label>
-            <input class="entreprise h-[35px] rounded border border-[#1E93AB] border-[2px] pl-[5px]" type="text" id="role">
-    `;
-})
-
 const fermerFormulaire = document.querySelector(".fermerFormulaire");
 fermerFormulaire.addEventListener("click",()=>{
     formulaire.classList.add("hidden");
 })
 
 
-const statuus = document.querySelectorAll(".status");
+
+
+
 function zoneStatus() {
     Unassigned.forEach((un, index) => {
 
